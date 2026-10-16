@@ -69,7 +69,8 @@ try:
     symbols = get_symbols()
     tickers = get_tickers()
 except Exception as e:
-    st.error(f"Não foi possível obter dados públicos da Binance: {e}")
+    st.error("Erro ao conectar com a Binance:")
+    st.exception(e)
     st.stop()
 
 ticker_map = {x["symbol"]: x for x in tickers}
